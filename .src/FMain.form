@@ -1,0 +1,21 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,150,91)
+  Text = ("Intercambiador de formato Fecha y hora")
+  { ButtonProcesar Button
+    MoveScaled(117,48,18,4)
+    Text = ("Procesar")
+  }
+  { TextArea1 TextArea
+    MoveScaled(4,6,109,62)
+  }
+  { ButtonCarga Button
+    MoveScaled(118,6,19,6)
+    Text = ("Cargar")
+  }
+  { CheckBoxLineasSinDatos CheckBox
+    MoveScaled(116,40,35,6)
+    Text = ("Elimina las lineas sin datos")
+  }
+}

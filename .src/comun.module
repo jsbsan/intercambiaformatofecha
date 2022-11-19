@@ -1,0 +1,79 @@
+' Gambas module file
+
+Public checkOmitirLineaSindatos As Boolean
+
+Public Sub procesa(l As String)
+
+  'leer el fichero, linea por linea,
+
+  Dim hfile As File
+  Dim sline As String
+
+  Dim lnew As String
+  Dim hfilenew As File
+
+  Dim lineadetextoprocesada As String
+
+  hfile = Open l For Input
+
+  lnew = l & ".new.csv"
+
+  If Not Exist(lnew) Then File.Save(lnew, "") 'lo crea vacio
+
+  hfileNew = Open lnew For Write
+
+  While Not Eof(hfile)
+    Line Input #hfile, sline
+    '  Print sLine
+    lineadetextoprocesada = ProcesarLineaFecha(sline)
+    If Not lineadetextoprocesada = "" Then
+      Write #hfilenew, ProcesarLineaFecha(sline) & "\n"
+    Endif
+  Wend
+
+  Close hfile
+  Close hfilenew
+
+  Message.Info("fin de operaciones")
+
+End
+
+Public Function ProcesarLineaFecha(l As String) As String
+
+  Dim SituacionLineaBarra As Integer
+  Dim mes As String
+  Dim dia As String
+  Dim hora As String
+  Dim NuevaLinea As String
+
+  'intercambiamos mes/dia a dia/mes
+  'buscar el caracter /
+  SituacionLineaBarra = InStr(l, "/")
+
+  If SituacionLineaBarra <> 0 Then
+
+    mes = Mid(l, SituacionLineaBarra - 2, 2)
+    dia = Mid(l, SituacionLineaBarra + 1, 2)
+
+    hora = Mid(l, 1, 8)
+    NuevaLinea = dia & "/" & mes & "/" & Mid(l, SituacionLineaBarra + 4, 2) & " " & hora & Mid(l, SituacionLineaBarra + 6, 10000)
+
+    Print l
+    Print NuevaLinea
+
+    'lee dos caractes antes y despues
+    'crea una nueva linea con los datos intercambiados
+    'hora -> desplaza o anula
+    Return NuevaLinea
+  Else
+
+    If checkOmitirLineaSindatos = True Then
+      Return ""'no devuelvo lineas sin datos
+
+    Else
+      Return l'""' no contine datosl
+    Endif
+
+  Endif
+
+End
