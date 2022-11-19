@@ -3,19 +3,33 @@
 { Form Form
   MoveScaled(0,0,150,91)
   Text = ("Intercambiador de formato Fecha y hora")
+  Icon = Picture["portapapeles.png"]
   { ButtonProcesar Button
-    MoveScaled(117,48,18,4)
+    MoveScaled(118,84,18,4)
     Text = ("Procesar")
   }
   { TextArea1 TextArea
-    MoveScaled(4,6,109,62)
+    MoveScaled(1,1,109,89)
   }
   { ButtonCarga Button
     MoveScaled(118,6,19,6)
     Text = ("Cargar")
   }
   { CheckBoxLineasSinDatos CheckBox
-    MoveScaled(116,40,35,6)
+    MoveScaled(112,77,35,6)
     Text = ("Elimina las lineas sin datos")
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(114,47,32,12)
+    Text = ("Cambia el orden de mm/dd a dd/mm de linea de datos de fichero")
+  }
+  { Label1 Label
+    MoveScaled(114,36,32,6)
+    Font = Font["Bold"]
+    Text = ("Intercambiar formato de fecha")
+  }
+  { Label2 Label
+    MoveScaled(116,60,22,9)
+    Text = ("Autor: Julio Sanchez Berro")
   }
 }
