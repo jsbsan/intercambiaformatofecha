@@ -18,6 +18,7 @@
   { CheckBoxLineasSinDatos CheckBox
     MoveScaled(112,77,35,6)
     Text = ("Elimina las lineas sin datos")
+    Value = CheckBox.True
   }
   { TextLabel1 TextLabel
     MoveScaled(114,47,32,12)

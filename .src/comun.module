@@ -47,10 +47,10 @@ Public Function ProcesarLineaFecha(l As String) As String
   Dim NuevaLinea As String
 
   'intercambiamos mes/dia a dia/mes
-  'buscar el caracter /
+  'contiene :
   SituacionLineaBarra = InStr(l, "/")
-
-  If SituacionLineaBarra <> 0 Then
+  If InStr(l, ":") <> 0 And SituacionLineaBarra <> 0 Then
+    'buscar el caracter /
 
     mes = Mid(l, SituacionLineaBarra - 2, 2)
     dia = Mid(l, SituacionLineaBarra + 1, 2)
