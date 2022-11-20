@@ -9,11 +9,11 @@
     Text = ("Procesar")
   }
   { TextArea1 TextArea
-    MoveScaled(1,1,109,89)
+    MoveScaled(2,8,109,80)
   }
   { ButtonCarga Button
-    MoveScaled(118,6,19,6)
-    Text = ("Cargar")
+    MoveScaled(115,11,28,6)
+    Text = ("Cargar rutas por defecto")
   }
   { CheckBoxLineasSinDatos CheckBox
     MoveScaled(112,77,35,6)
@@ -31,5 +31,9 @@
   { Label2 Label
     MoveScaled(116,60,22,9)
     Text = ("Autor: Julio Sanchez Berro")
+  }
+  { Label3 Label
+    MoveScaled(3,2,91,5)
+    Text = ("Pegar rutas de archivos:")
   }
 }
