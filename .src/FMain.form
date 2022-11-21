@@ -12,7 +12,7 @@
     MoveScaled(2,8,109,80)
   }
   { ButtonCarga Button
-    MoveScaled(115,11,28,6)
+    MoveScaled(120,1,28,5)
     Text = ("Cargar rutas por defecto")
   }
   { CheckBoxLineasSinDatos CheckBox
@@ -34,7 +34,11 @@
     Text = ("Autor: Julio Sanchez Berro")
   }
   { Label3 Label
-    MoveScaled(3,2,91,5)
+    MoveScaled(3,2,37,5)
     Text = ("Pegar rutas de archivos:")
+  }
+  { ButtonCargaDirectorio Button
+    MoveScaled(79,1,32,5)
+    Text = ("Carga Directorio Por Defecto")
   }
 }

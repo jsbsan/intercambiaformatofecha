@@ -14,6 +14,13 @@ Public Sub procesa(l As String)
 
   Dim lineadetextoprocesada As String
 
+  If l = "" Then Return
+
+  If InStr(l, ".new.csv") <> 0 Then
+
+    Return 'no procesar
+  Endif
+
   hfile = Open l For Input
 
   lnew = l & ".new.csv"
@@ -34,7 +41,7 @@ Public Sub procesa(l As String)
   Close hfile
   Close hfilenew
 
-  Message.Info("fin de operaciones")
+  ' Message.Info("fin de operaciones")
 
 End
 
@@ -57,6 +64,8 @@ Public Function ProcesarLineaFecha(l As String) As String
 
     hora = Mid(l, 1, 8)
     NuevaLinea = dia & "/" & mes & "/" & Mid(l, SituacionLineaBarra + 4, 2) & " " & hora & Mid(l, SituacionLineaBarra + 6, 10000)
+    'cambio punto decimal por coma decimal
+    NuevaLinea = Replace(NuevaLinea, ".", ",")
 
     Print l
     Print NuevaLinea
@@ -75,5 +84,29 @@ Public Function ProcesarLineaFecha(l As String) As String
     Endif
 
   Endif
+
+End
+
+'-----------------------------------------------
+'recorrer directorio y devolver contenido de fichero similar unido
+
+Public Function recorrer(ruta As String, contenido As String[]) As String
+
+  Dim archivo As String
+
+  For Each archivo In Dir(ruta).Sort()
+
+    If IsDir(ruta & "/" & archivo) Then
+      Print "Directorio: " & ruta & "/" & archivo
+      recorrer(ruta & "/" & archivo, contenido)
+    Else
+      Print "fichero: " & ruta & "/" & archivo
+
+      'fichero similar al solicitoado
+      contenido[0] &= ruta & "/" & archivo & gb.LF
+
+    Endif
+
+  Next
 
 End

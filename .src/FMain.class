@@ -17,4 +17,17 @@ Public Sub ButtonProcesar_Click()
     comun.procesa(l)
   Next
 
+  Message.Info("Fin de procesado")
+
+End
+
+Public Sub ButtonCargaDirectorio_Click()
+
+  Dim contenido As New String[]
+
+  contenido.Add("")
+
+  comun.recorrer("/home/minino/MANUAL", contenido)
+  TextArea1.Text = contenido[0]
+
 End
